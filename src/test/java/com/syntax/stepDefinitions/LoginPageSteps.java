@@ -1,6 +1,7 @@
 package com.syntax.stepDefinitions;
 
-import org.junit.Assert;
+import org.testng.Assert;
+
 import com.syntax.pages.LoginPage;
 import com.syntax.utils.CommonMethods;
 
