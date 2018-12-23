@@ -1,5 +1,7 @@
 package com.syntax.utils;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -21,8 +23,16 @@ public class CommonMethods extends BaseClass {
 		WebElement elm = waiting(element);
 		elm.click();
 	}
-	public static void DropDown(WebElement value,String value2) {
-		Select obj = new Select (value);
-		obj.selectByVisibleText(value2);
+
+	public static void DropDown(WebElement value, String value2) {
+		Select obj = new Select(value);
+		List<WebElement> elements = obj.getOptions();
+		System.out.println("Number of option is dd is --------------"+elements.size());
+		for (WebElement element : elements) {
+			System.out.println(element.getText());
+			if (element.getText().equalsIgnoreCase(value2)) {
+				obj.selectByVisibleText(value2);
+			}
+		}
 	}
 }
